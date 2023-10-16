@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/register.css}">
+</head>
+<body>
+<div class="container">
+    <div class="message" th:if="${param.error}">
+        Invalid Username or Password
+    </div>
+    <div class="message" th:if="${param.logout}">
+        Logout Successfuly
+    </div>
+    <h2>Admin and User Login Page</h2>
+
+
+    <form class="register-form"
+          th:action="@{/login}" method="post" role="form" th:object="${user}">
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <input type="submit" value="Register">
+    </form>
+
+</div>
+</body>
+</html>
